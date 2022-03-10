@@ -3,6 +3,7 @@ module app
 go 1.17
 
 require (
+	github.com/go-sql-driver/mysql v1.6.0
 	github.com/golang/protobuf v1.5.2 // indirect
 	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
 	golang.org/x/sys v0.0.0-20220310020820-b874c991c1a5 // indirect
