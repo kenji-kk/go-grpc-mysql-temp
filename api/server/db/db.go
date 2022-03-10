@@ -13,7 +13,7 @@ var Db *sql.DB
 var err error 
 
 func DbConnect() {
-	Db, err := sql.Open("mysql", "go_grpc:password@tcp(mysql:3306)/go_database?charset=utf8parseTime=true&loc=Asia%2FTokyo")
+	Db, err := sql.Open("mysql", "go_grpc:password@tcp(mysql:3306)/go_database?charset=utf8&parseTime=true&loc=Asia%2FTokyo")
 	if err != nil {
 		log.Fatalln(err)
 	}
