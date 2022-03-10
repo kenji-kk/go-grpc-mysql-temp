@@ -20,7 +20,7 @@ services:
       - server
     volumes:
       - ./api/:/go/api
-    posrt:
+    ports:
       - "8080:8080"
     
   mysql:
