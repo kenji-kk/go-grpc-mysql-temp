@@ -19,28 +19,30 @@ func DbConnect() {
 	}
 	fmt.Println("db接続完了")
 
-	cmdC := `CREATE TABLR IF NOT EXISTS country {
-		id int(11) NOT NULL AUTO_INCREMENT,
-		name varchar(255))`
+	cmdC := `CREATE TABLE IF NOT EXISTS country (
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		name VARCHAR(255))`
 
 		_, err = Db.Exec(cmdC)
 		count := 0
 		if err != nil {
 			for {
 				if err == nil {
-					fmt.Println("CREATE成功")
+					fmt.Println("")
 					break
 				}
 				fmt.Print(".")
 				time.Sleep(time.Second)
 				count++
-				if count > 100 {
+				if count > 180 {
 					fmt.Println("")
 					panic(err)
 				}
 				_, err = Db.Exec(cmdC)
 			}
 		}
+
+		fmt.Println("テーブル作成成功")
 
 		cmd := `INSERT INTO country(name) VALUES(?)`
 		_, err = Db.Exec(cmd, "Japan")

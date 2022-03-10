@@ -29,6 +29,6 @@ func country(w http.ResponseWriter, r *http.Request){
 }
 
 func main() {
-	http.HandleFunc("/country", country)
+	http.HandleFunc("/", country)
 	http.ListenAndServe(":8080", nil)
 }

@@ -37,12 +37,6 @@ func main() {
 	pb.RegisterAppServiceServer(s, &server{})
 	s.Serve(lis)
 
-	go func() {
-		fmt.Println("Starting Server...")
-		err = s.Serve(lis)
-		checkErr("faild to server: %v", err)
-	}()
-
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, os.Interrupt)
 	<-ch
@@ -62,7 +56,7 @@ func (s *server) GetAllCountry(ctx context.Context, req *pb.AllCountryRequest) (
 	var allCountrySlice []*pb.Country
 	for _, countryEntity := range allCountryEntity {
 		country := &pb.Country{
-			Id: countryEntity.Id,
+			Id:   countryEntity.Id,
 			Name: countryEntity.Name,
 		}
 		allCountrySlice = append(allCountrySlice, country)
