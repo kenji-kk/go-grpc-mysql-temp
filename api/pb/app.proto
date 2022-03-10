@@ -1,0 +1,18 @@
+syntax = "proto3";
+package api;
+option go_package = "./api/pb"
+
+service AppService {
+  rpc GetAllCountry(AllCountryRequest) returns (AllCountryResponse) {}
+}
+
+message Country {
+  string id = 1;
+  string name = 2;
+}
+
+message AllCountryRequest {}
+
+message AllCountryResponse {
+  repeated Country All country = 1;
+}
