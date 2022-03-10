@@ -32,8 +32,8 @@ services:
       MYSQL_USER: go_grpc
       MYSQL_PASSWORD: password
       TZ: "Asia/Tokyo"
-    command: mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-    - ./db/my.cnf:/etc/mysql/conf.d/my.con
+    - ./db/my.cnf:/etc/mysql/conf.d/my.conf
     ports:
       - "3306:3306"

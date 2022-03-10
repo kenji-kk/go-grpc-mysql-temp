@@ -22,6 +22,7 @@ func checkErr(message string, err error) {
 
 func init() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
+	db.DbConnect()
 }
 
 type server struct {}
@@ -52,7 +53,7 @@ func main() {
 	fmt.Println("終了")
 }
 
-func (s *server) GetAllCountry(ctx context.Context, req *pb.AllCountryRequest){
+func (s *server) GetAllCountry(ctx context.Context, req *pb.AllCountryRequest) (*pb.AllCountryResponse, error) {
 	allCountryEntity, err := db.GetAllCountry()
 	if err != nil {
 		log.Fatalln(err)
