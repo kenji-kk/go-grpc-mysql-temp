@@ -12,7 +12,7 @@ import (
 
 func checkErr(message string, err error) {
 	if err != nil {
-		log.Fatalf("message", err)
+		log.Fatalf(message, err)
 	}
 }
 
